@@ -1,0 +1,23 @@
+from selenium import webdriver
+driver = webdriver.Chrome(executable_path='C:/chromedriver.exe')
+driver.maximize_window()
+# Открытие сайта
+driver.implicitly_wait(5)
+driver.get("https://practice.automationtesting.in/")
+driver.execute_script("window.scrollBy(0, 600);")
+ruby_btn = driver.find_element_by_css_selector("[alt='Selenium Ruby']")
+ruby_btn.click()
+# Переход
+rev_btn = driver.find_element_by_class_name("reviews_tab")
+rev_btn.click()
+star_btn = driver.find_element_by_class_name("star-5")
+star_btn.click()
+comm = driver.find_element_by_id("comment")
+comm.send_keys("Nice book!")
+name = driver.find_element_by_id("author")
+name.send_keys("Andrew")
+email = driver.find_element_by_id("email")
+email.send_keys("Doter.222@yandex.ru")
+sub_btn = driver.find_element_by_id("submit")
+sub_btn.click()
+driver.quit()
